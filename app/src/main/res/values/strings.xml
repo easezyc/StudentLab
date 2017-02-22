@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">StudentLab</string>
+    <string name="ok">确定</string>
+    <string name="biology">生物</string>
+    <string name="chemistry">化学</string>
+    <string name="physics">物理</string>
+    <string name="primary">小学</string>
+    <string name="middle">初中</string>
+    <string name="high">高中</string>
+    <string name="chooceage">选择阶段</string>
+    <string name="choocesubject">选择科目</string>
+    <string name="info">个人信息</string>
+    <string name="aboutus">关于我们</string>
+    <string name="morepoduct">更多产品</string>
+    <string name="photo">个人头像</string>
+    <string name="beginlab">开始试验</string>
+    <string name="choocelab">选择试验</string>
+    <string name="lab1">覆盖薄膜对植物生长的作用</string>
+    <string name="lab2">实验二</string>
+    <string name="lab3">实验三</string>
+    <string name="lab4">实验四</string>
+    <string name="giveuplab">放弃实验</string>
+    <string name="labstep">实验步骤</string>
+    <string name="stoplab">暂停实验</string>
+    <string name="continuelab">继续实验</string>
+</resources>
