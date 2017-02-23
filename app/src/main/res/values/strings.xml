@@ -23,4 +23,6 @@
     <string name="labstep">实验步骤</string>
     <string name="stoplab">暂停实验</string>
     <string name="continuelab">继续实验</string>
+    <string name="launch">展开</string>
+    <string name="fold">折叠</string>
 </resources>
