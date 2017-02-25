@@ -1,9 +1,11 @@
 package com.bnu.studentlab;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -11,9 +13,19 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.utils.ValueFormatter;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private CharSequence age,subject;//选择的阶段和学科
@@ -207,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
     {
         for(int i=0;i<7;i++)
         {
-            LinearLayout layout=(LinearLayout)findViewById(R.id.steplayout);
+            LinearLayout layout=(LinearLayout)findViewById(R.id.scrolllayout);
             final LinearLayout newlayout = new LinearLayout(this);
             newlayout.setOrientation(LinearLayout.HORIZONTAL);
             final Button btn = new Button(this);
@@ -249,17 +261,30 @@ public class MainActivity extends AppCompatActivity {
             image.setImageResource(R.drawable.introduction);
             image.setVisibility(View.GONE);
             layout.addView(newlayout);
+            final LineChart chart = new LineChart(this);
+            chart.setMinimumHeight(0);
+            if(i==4)
+            {
+                chart.setMinimumHeight(500);
+                Charts c=new Charts();
+                LineData mLineData = c.makeLineData();
+                c.setChartStyle(chart, mLineData, Color.WHITE);
+                chart.setVisibility(View.GONE);
+            }
+            layout.addView(chart);
             layout.addView(image);
             btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(image.getVisibility()==View.GONE)
                     {
+                        chart.setVisibility(View.VISIBLE);
                         image.setVisibility(View.VISIBLE);
                         btn.setText(R.string.fold);
                     }
                     else
                     {
+                        chart.setVisibility(View.GONE);
                         image.setVisibility(View.GONE);
                         btn.setText(R.string.launch);
                     }
@@ -312,3 +337,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+
